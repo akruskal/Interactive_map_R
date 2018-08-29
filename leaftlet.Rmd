@@ -12,6 +12,8 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(leaflet)
+library(sp)
+
 ```
 
 ## Introduction
@@ -32,6 +34,16 @@ The Sydney GPO is at 33°52′04″S 151°12′28″E.
 
 ```{r gpo}
 # include your GPO map here
+
+long_coord <- as.numeric(char2dms('151°12\′28″E' , chd = "°", chm = "'", chs = "\""))
+lat_coord <- as.numeric(char2dms('33°52\′04″S', chd = "°", chm = "'", chs = "\""))
+
+
+
+m<- leaflet() %>%
+  addTiles() %>%
+  addMarkers(lng = long_coord, lat =lat_coord, popup = "Sydney GPO")
+m
 ```
 
 ## Task 2: Custom icons [2 marks]
