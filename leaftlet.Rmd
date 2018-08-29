@@ -67,7 +67,13 @@ Add extra `iconColor` and `markerColor` arguments to _awesomeIcons()_ to make
 the icon colour `#fff` and the marker colour `red`.
 
 ```{r white-gpo}
-# include your custom marker map here
+#Describe special Icon
+icons <- awesomeIcons(icon="envelope", library="fa", iconColor = '#fff', markerColor = 'red')
+
+m<- leaflet() %>%
+  addTiles() %>%
+  addAwesomeMarkers(lng = long_coord, lat =lat_coord,icon=icons, popup = "Sydney GPO")
+m
 ```
 
 ## Loading some spatial data
