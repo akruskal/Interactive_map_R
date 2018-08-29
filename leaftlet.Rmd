@@ -145,5 +145,16 @@ You will need to add a `group` argument to the three layers in order to control 
 Add the options `layersControlOptions(collapsed = FALSE)` to the layer controls.
 
 ```{r interactive}
-# include your interactive map here
+#create awesom marker qualities
+icons <- awesomeIcons(icon="envelope", library="fa", iconColor = '#fff', markerColor = 'red')
+
+#create interactive map with controls
+m<- leaflet() %>%
+  addTiles() %>%
+  addPolygons(data= kensington, group = 'Kensington') %>%
+  addPolygons(data= UNSW, fillColor = 'red', group = 'UNSW') %>%
+  addAwesomeMarkers(lng = long_coord, lat =lat_coord,icon=icons, popup = "Sydney GPO", group = 'Sydney GPO') %>%
+  addLayersControl(overlayGroups = c('Kensington', 'UNSW', 'Sydney GPO'), options = layersControlOptions(collapsed = FALSE))
+    
+m
 ```
