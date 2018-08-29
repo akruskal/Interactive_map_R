@@ -35,8 +35,8 @@ The Sydney GPO is at 33°52′04″S 151°12′28″E.
 ```{r gpo}
 # convert from DMS to degrees/numeric and make long and lat variables
 
-long_coord <- as.numeric(char2dms('151°12\′28″E' , chd = "°", chm = "'", chs = "\""))
-lat_coord <- as.numeric(char2dms('33°52\′04″S', chd = "°", chm = "'", chs = "\""))
+long_coord <- 151.207699
+lat_coord <- -33.867716
 
 
 
